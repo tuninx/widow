@@ -167,7 +167,7 @@ def queue_worker():
                 if arena_delay and arena_delay_day != datetime.now(tz).day:
                     arena_delay = False
                 lt_info = time()
-                get_info_diff = random.randint(900, 1200)
+                get_info_diff = random.randint(600, 1000)
                 if bot_enabled:
                     send_msg(bot_username, orders['hero'])
                 continue
@@ -236,9 +236,9 @@ def parse_text(text, username, message_id):
             hero_message_id = message_id
             m = re.search('Битва пяти замков через(?: ([0-9]+)ч){0,1}(?: ([0-9]+)){0,1}', text)
             if not m.group(1):
-                if m.group(2) and int(m.group(2)) <= 59:
+                if m.group(2) and int(m.group(2)) <= 20
                     state = re.search('Состояние:\\n(.*)$', text)
-                    if auto_def_enabled and time() - current_order['time'] > 3600:
+                    if auto_def_enabled and time() - current_order['time'] > 1080
                         if donate_enabled:
                             gold = int(re.search('💰([0-9]+)', text).group(1))
                             inv = re.search('🎒Рюкзак: ([0-9]+)/([0-9]+)', text)
@@ -262,6 +262,7 @@ def parse_text(text, username, message_id):
                                 else:
                                     log('Донат {0} золота в казну замка'.format(gold-gold_to_left))
                                     action_list.append('/donate {0}'.format(gold-gold_to_left))
+                        action_list.append(orders['rapira'])
                         update_order(castle)
                     return
             log('Времени достаточно')
