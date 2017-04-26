@@ -288,6 +288,13 @@ def parse_text(text, username, message_id):
                 if 9 <= curhour <= 23:
                     log('Включаем флаг - арена запущена')
                     arena_running = True
+                    if gold < 5:
+                        if gold <= 0:
+                            action_list.append(orders['nitki3'])
+                        if 0 < gold < 3:
+                            action_list.append(orders['nitki2'])
+                        if 2 < gold < 5:
+                            action_list.append(orders['nitki'])
                     action_list.append(orders['rapira'])
                     action_list.append(orders['castle_menu'])
                     action_list.append('📯Арена')
